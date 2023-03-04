@@ -86,7 +86,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 client.paused = false;
 const automaticJinInsulter = new cron.CronJob('0 */4 * * *', async () => {
-    const channel = await client.channels.fetch('173285533227810816');
+    const channel = await client.channels.fetch(config.CHANNEL_ID);
     const insultsFile = fs.readFileSync('insults.txt', 'UTF-8');
     const insults = insultsFile.split(/\r?\n/);
     const insult = insults[utils.randomInt(0, insults.length - 2)];
